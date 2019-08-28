@@ -120,11 +120,10 @@ function setup() {
         //INITIALIZE ALL SQUARES TO FLASE, NOT SELECTED
         selectedSquares[i] = new Array(); 
         tones[i] = new p5.Oscillator();
-        soundWaves[i].start();
-        soundWaves[i].setType('sine');
-        //soundWaves[i].amp(0.5);
-        soundWaves[i].freq( myNotes[i] );
-        soundWaves[i].amp(0.0);
+        tones[i].start();
+        tones[i].setType('sine');
+        tones[i].freq( myNotes[i] );
+        tones[i].amp(0.0);
         for (j = 0 ; j < gridSizeX ; j++) {
              selectedSquares[i].push(false);
          }//close for j
