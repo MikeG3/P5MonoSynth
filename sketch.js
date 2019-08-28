@@ -36,6 +36,7 @@ var grayColor = 0;
 var incrementing = true;
 var soundWaves;
 var selectedSquares = [gridSizeY];
+var tones = [gridSizeY];
 var hole, half, quarter, eigth;
 var tempo = 50;           //integer value used for counter to start/stop oscillator
 var noteDuration = 2;
@@ -78,7 +79,6 @@ for ( i = 0 ; i < 7 ; i++){
       }//close if not the 4th, nor 8th note
    }//close for j each note in the scale
 }//close for i each octave
-
 var minorScales = [42];     //6 OCTAVES
 note = 0;
 //FOR EACH OCTAVE
@@ -119,6 +119,12 @@ function setup() {
     for (i = 0 ; i < gridSizeY ; i++) {
         //INITIALIZE ALL SQUARES TO FLASE, NOT SELECTED
         selectedSquares[i] = new Array(); 
+        tones[i] = new p5.Oscillator();
+        soundWaves[i].start();
+        soundWaves[i].setType('sine');
+        //soundWaves[i].amp(0.5);
+        soundWaves[i].freq( myNotes[i] );
+        soundWaves[i].amp(0.0);
         for (j = 0 ; j < gridSizeX ; j++) {
              selectedSquares[i].push(false);
          }//close for j
